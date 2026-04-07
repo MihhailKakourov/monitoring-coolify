@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'feedback-app'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['feedback-board:3000'] # Имя твоего основного приложения в Coolify
+
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['monitoring-cadvisor:9109']
