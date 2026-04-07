@@ -6,7 +6,9 @@ scrape_configs:
   # 1. Frontend
   - job_name: 'feedback-frontend'
     metrics_path: '/metrics'
-    static_configs:
+    authorization:
+        type: Bearer
+        credentials: 'CcKuuiQHEAJdRVXQKZyi5ZIx9aazgFaZ89M8hbwsQ7l949rSKrmAUCC3MviUCeA'    static_configs:
       - targets: ['feedback-board:3000']
 
   # 2. Docker
