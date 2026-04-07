@@ -2,11 +2,15 @@ global:
   scrape_interval: 15s
 
 scrape_configs:
-  - job_name: 'feedback-app'
+  # Frontend
+  - job_name: 'feedback-frontend'
     metrics_path: '/metrics'
     static_configs:
-      - targets: ['feedback-board:3000'] # Имя твоего основного приложения в Coolify
+      - targets: ['Feedback-Board-Frontend:3000']
 
-  - job_name: 'cadvisor'
+  # PocketBase
+  - job_name: 'feedback-pocketbase'
     static_configs:
-      - targets: ['monitoring-cadvisor:9109']
+      - targets: ['Feedback-Board-Cadvisor:9109']
+    params:
+      container: ['Feedback-Board-Pocketbase']
