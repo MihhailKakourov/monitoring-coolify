@@ -8,7 +8,8 @@ scrape_configs:
     metrics_path: '/metrics'
     authorization:
         type: Bearer
-        credentials: 'CcKuuiQHEAJdRVXQKZyi5ZIx9aazgFaZ89M8hbwsQ7l949rSKrmAUCC3MviUCeA'    static_configs:
+        credentials: 'CcKuuiQHEAJdRVXQKZyi5ZIx9aazgFaZ89M8hbwsQ7l949rSKrmAUCC3MviUCeA'    
+    static_configs:
       - targets: ['feedback-board:3000']
 
   # 2. Docker
