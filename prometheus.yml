@@ -1,16 +1,20 @@
 global:
   scrape_interval: 15s
+  evaluation_interval: 15s
 
 scrape_configs:
-  # Frontend
+  # 1. Frontend
   - job_name: 'feedback-frontend'
     metrics_path: '/metrics'
     static_configs:
-      - targets: ['Feedback-Board-Frontend:3000']
+      - targets: ['feedback-board:3000']
 
-  # PocketBase
-  - job_name: 'feedback-pocketbase'
+  # 2. Docker
+  - job_name: 'cadvisor'
     static_configs:
-      - targets: ['Feedback-Board-Cadvisor:9109']
-    params:
-      container: ['Feedback-Board-Pocketbase']
+      - targets: ['cadvisor:9109']
+
+  # 3. Prometheus
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
