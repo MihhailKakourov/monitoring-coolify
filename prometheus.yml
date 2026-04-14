@@ -15,7 +15,7 @@ scrape_configs:
   # 2. Docker
   - job_name: 'cadvisor'
     static_configs:
-      - targets: ['Feedback-Board-Cadvisor:9109']
+      - targets: ['cadvisor:9109']
 
   # 3. Prometheus
   - job_name: 'prometheus'
