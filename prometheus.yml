@@ -6,6 +6,8 @@ scrape_configs:
   # 1. Frontend
   - job_name: 'feedback-frontend'
     metrics_path: '/metrics'
+    scrape_interval: 30s
+    scrape_timeout: 10s
     authorization:
         type: Bearer
         credentials: 'CcKuuiQHEAJdRVXQKZyi5ZIx9aazgFaZ89M8hbwsQ7l949rSKrmAUCC3MviUCeA'    
